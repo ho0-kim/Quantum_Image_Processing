@@ -52,13 +52,15 @@ def MCRY(theta, n_controlbit):
     return UnitaryGate(mat, label=f'multi-controlled ry gate {theta}')
 
 if __name__ == '__main__':
-    # X_train = datasets.MNIST(root='./data', train=True, download=True,
-    #                      transform=transforms.Compose([transforms.ToTensor()]))
+    # img_folder = "C:/Users/thesi/Downloads/MNIST Dataset JPG format/MNIST Dataset JPG format/MNIST - JPG - training/0/"
+    # img_path = img_folder + "1.jpg"
 
-    img_folder = "C:/Users/thesi/Downloads/MNIST Dataset JPG format/MNIST Dataset JPG format/MNIST - JPG - training/0/"
-    img_path = img_folder + "1.jpg"
+    # img = cv2.imread(img_path, 0)
 
-    img = cv2.imread(img_path, 0)
+    train_data = datasets.MNIST(root='./data', train=True, download=True)
+
+    img, label = train_data[0]
+    img = np.array(img)
 
     """ image reszie from 28x28 to 32x32 """
     img_size = 16
